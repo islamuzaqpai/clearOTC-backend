@@ -1,5 +1,9 @@
 package main
 
+import "log"
+
 func main() {
-	Run()
+	if err := Run(); err != nil {
+		log.Fatalf("application failed: %v", err)
+	}
 }
