@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS clearotc.deal_events;

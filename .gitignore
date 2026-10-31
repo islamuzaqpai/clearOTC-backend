@@ -1,0 +1,14 @@
+# PostgreSQL data
+out/pgdata/
+
+# Go
+/vendor/
+*.exe
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# IDE
+.idea/
