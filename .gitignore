@@ -12,3 +12,5 @@ out/pgdata/
 
 # IDE
 .idea/
+
+coverage
