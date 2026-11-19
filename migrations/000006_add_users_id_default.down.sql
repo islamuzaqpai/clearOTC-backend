@@ -1,0 +1,2 @@
+ALTER TABLE clearotc.users
+    ALTER COLUMN id DROP DEFAULT;
