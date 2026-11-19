@@ -1,6 +1,7 @@
 package main
 
 import (
+	"ClearOTC/internal/api"
 	"ClearOTC/internal/config"
 	"ClearOTC/internal/database"
 	"context"
@@ -24,15 +25,19 @@ func Run() error {
 		return fmt.Errorf("failed to connect to db: %w", err)
 	}
 
+	router := api.NewRouter()
+
 	defer pool.Close()
 
 	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
 	defer stop()
-
+ 	 	 	
 	server := http.Server{
 		Addr:    fmt.Sprintf("%s:%d", cfg.ServerCfg.Host, cfg.ServerCfg.Port),
-		Handler: http.DefaultServeMux,
+		Handler: router,
 	}
+
+	fmt.Println("SUCCESS!")
 
 	serverErr := make(chan error, 1)
 
