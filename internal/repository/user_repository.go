@@ -16,7 +16,7 @@ func NewUserRepo(pool *pgxpool.Pool) *UserRepository {
 	return &UserRepository{pool: pool}
 }
 
-func (r *UserRepository) Create(ctx context.Context, userReq *models.UserReq) (*models.UserRes, error) {
+func (r *UserRepository) Create(ctx context.Context, userReq *models.CreateUserParams) (*models.UserRes, error) {
 	query := `INSERT INTO clearotc.users (name, lastname, email, password_hash) VALUES ($1, $2, $3, $4) RETURNING id, name, lastname, email, created_at, updated_at`
 
 	user := &models.UserRes{}

@@ -17,7 +17,7 @@ type User struct {
 	DeletedAt    *time.Time
 }
 
-type UserReq struct {
+type CreateUserParams struct {
 	Name         string
 	Lastname     string
 	Email        string
