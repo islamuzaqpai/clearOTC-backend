@@ -18,10 +18,10 @@ type User struct {
 }
 
 type CreateUserParams struct {
-	Name         string
-	Lastname     string
-	Email        string
-	PasswordHash string
+	Name     string
+	Lastname string
+	Email    string
+	Password string
 }
 
 type UserRes struct {
