@@ -8,3 +8,6 @@ import (
 type UserRepository interface {
 	Create(ctx context.Context, userReq *models.UserReq) (*models.UserRes, error)
 }
+
+type UserService struct {
+}

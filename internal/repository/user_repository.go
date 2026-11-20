@@ -8,15 +8,15 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 
-type PostgresRepository struct {
+type UserRepository struct {
 	pool *pgxpool.Pool
 }
 
-func NewPostgresRepo(pool *pgxpool.Pool) *PostgresRepository {
-	return &PostgresRepository{pool: pool}
+func NewUserRepo(pool *pgxpool.Pool) *UserRepository {
+	return &UserRepository{pool: pool}
 }
 
-func (r *PostgresRepository) Create(ctx context.Context, userReq *models.UserReq) (*models.UserRes, error) {
+func (r *UserRepository) Create(ctx context.Context, userReq *models.UserReq) (*models.UserRes, error) {
 	query := `INSERT INTO clearotc.users (name, lastname, email, password_hash) VALUES ($1, $2, $3, $4) RETURNING id, name, lastname, email, created_at, updated_at`
 
 	user := &models.UserRes{}
