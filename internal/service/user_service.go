@@ -16,6 +16,10 @@ type UserService struct {
 	repository UserRepository
 }
 
+func NewService(repository UserRepository) *UserService {
+	return &UserService{repository: repository}
+}
+
 func (s *UserService) Register(ctx context.Context, req *models.CreateUserParams) (*models.UserRes, error) {
 	if err := utils.ValidateRegister(req); err != nil {
 		return nil, fmt.Errorf("validate registration: %w", err)
