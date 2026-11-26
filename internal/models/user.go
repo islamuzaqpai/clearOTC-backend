@@ -18,17 +18,17 @@ type User struct {
 }
 
 type CreateUserParams struct {
-	Name     string
-	Lastname string
-	Email    string
-	Password string
+	Name     string `json:"name"`
+	Lastname string `json:"lastname"`
+	Email    string `json:"email"`
+	Password string `json:"password"`
 }
 
 type UserRes struct {
-	ID        uuid.UUID
-	Name      string
-	Lastname  string
-	Email     string
-	CreatedAt time.Time
-	UpdatedAt time.Time
+	ID        uuid.UUID `json:"id"`
+	Name      string    `json:"name"`
+	Lastname  string    `json:"lastname"`
+	Email     string    `json:"email"`
+	CreatedAt time.Time `json:"createdAt"`
+	UpdatedAt time.Time `json:"updatedAt"`
 }
